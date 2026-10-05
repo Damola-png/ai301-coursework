@@ -1,0 +1,4 @@
+# Preserve the bytes recorded in the harness's provenance header.
+/tools/issue-select/rubric.md -text
+/tools/issue-select/SKILL.md -text
+/beat-1-sandbox/unit-1/eval-run.txt -text
