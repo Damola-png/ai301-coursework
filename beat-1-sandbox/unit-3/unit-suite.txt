@@ -1,0 +1,28 @@
+x..........xx.....x.............x.xxx.x...x..x...x......x....x.......... [ 16%]
+....x...........................................x............xx.......x. [ 33%]
+....x....x........................x..................................... [ 50%]
+............................x........x.....x........................x... [ 66%]
+.............xx.x..xx...xxxxx...xxx.xxx.xx.....................x........ [ 83%]
+C:\Users\damol\OneDrive\Documents\pathreview\.venv\Lib\site-packages\_pytest\unraisableexception.py:33: RuntimeWarning: coroutine 'AsyncMockMixin._execute_mock_call' was never awaited
+  gc.collect()
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+.............x....xx..xx.......x...............x.x.....................  [100%]
+============================== warnings summary ===============================
+core\config.py:7
+  C:\Users\damol\OneDrive\Documents\pathreview\core\config.py:7: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class Settings(BaseSettings):
+
+tests/unit/test_health.py::test_health_check_accepts_live_sqlalchemy_session
+tests/unit/test_health.py::test_health_endpoint_returns_200_for_reachable_database
+tests/unit/test_health.py::test_health_check_preserves_503_for_database_failure
+  C:\Users\damol\OneDrive\Documents\pathreview\api\routes\health.py:28: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+tests/unit/test_review_service.py::TestReviewService::test_list_reviews_returns_reviews_list
+  C:\Users\damol\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py:2217: RuntimeWarning: coroutine 'AsyncMockMixin._execute_mock_call' was never awaited
+    def __init__(self, name, parent):
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+378 passed, 53 xfailed, 5 warnings in 22.30s

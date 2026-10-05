@@ -6,7 +6,7 @@
 
 https://github.com/codepath/pathreview-ai301-fa26-s1/issues/61
 
-Provisional choice from the live candidate comparison: `#61` ranked first, `#36` was also accepted, and the previous candidate `#72` was rejected because it had an open linked PR. The personal reflection below still needs the student's own answers before submission.
+Confirmed choice: `#61`, selected by the student on October 5, 2026. In the live candidate comparison, `#61` ranked first, `#36` was also accepted, and the previous candidate `#72` was rejected because it had an open linked PR. The personal reflection below still needs the student's own answers before submission.
 
 **Verdict output**
 

@@ -1,0 +1,15 @@
+
+> pathreview-frontend@0.1.0 test
+> vitest --run --testTimeout 30000
+
+
+ RUN  v1.6.1 C:/Users/damol/OneDrive/Documents/pathreview/frontend
+
+ ✓ src/components/__tests__/ReviewSection.test.tsx  (10 tests) 1120ms
+ ✓ src/components/__tests__/ProfileForm.test.tsx  (8 tests) 10100ms
+
+ Test Files  2 passed (2)
+      Tests  18 passed (18)
+   Start at  12:12:17
+   Duration  19.14s (transform 547ms, setup 4.37s, collect 1.20s, tests 11.22s, environment 8.53s, prepare 1.94s)
+

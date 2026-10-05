@@ -1,0 +1,38 @@
+FF.                                                                      [100%]
+================================== FAILURES ===================================
+______________ test_health_check_accepts_live_sqlalchemy_session ______________
+tests\unit\test_health.py:55: in test_health_check_accepts_live_sqlalchemy_session
+    result = await health.health_check(db=database_session)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+api\routes\health.py:86: in health_check
+    raise HTTPException(
+E   fastapi.exceptions.HTTPException: 503: {'status': 'unhealthy', 'dependencies': {'postgres': 'unhealthy', 'redis': 'healthy', 'vector_db': 'healthy'}, 'safety_events_last_hour': 0, 'timestamp': '2026-10-05T15:32:34.203148'}
+---------------------------- Captured stdout call -----------------------------
+2026-10-05 10:32:34 [error    ] postgres_health_check_failed   error="Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')"
+2026-10-05 10:32:34 [debug    ] redis_health_check_passed
+2026-10-05 10:32:34 [debug    ] vector_db_health_check_passed
+___________ test_health_endpoint_returns_200_for_reachable_database ___________
+tests\unit\test_health.py:76: in test_health_endpoint_returns_200_for_reachable_database
+    assert response.status_code == 200
+E   assert 503 == 200
+E    +  where 503 = <Response [503 Service Unavailable]>.status_code
+---------------------------- Captured stdout call -----------------------------
+2026-10-05 10:32:35 [error    ] postgres_health_check_failed   error="Textual SQL expression 'SELECT 1' should be explicitly declared as text('SELECT 1')"
+2026-10-05 10:32:35 [debug    ] redis_health_check_passed
+2026-10-05 10:32:35 [debug    ] vector_db_health_check_passed
+============================== warnings summary ===============================
+core\config.py:7
+  C:\Users\damol\OneDrive\Documents\pathreview\core\config.py:7: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class Settings(BaseSettings):
+
+tests/unit/test_health.py::test_health_check_accepts_live_sqlalchemy_session
+tests/unit/test_health.py::test_health_endpoint_returns_200_for_reachable_database
+tests/unit/test_health.py::test_health_check_preserves_503_for_database_failure
+  C:\Users\damol\OneDrive\Documents\pathreview\api\routes\health.py:27: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.utcnow().isoformat(),
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_health.py::test_health_check_accepts_live_sqlalchemy_session
+FAILED tests/unit/test_health.py::test_health_endpoint_returns_200_for_reachable_database
+2 failed, 1 passed, 4 warnings in 7.47s

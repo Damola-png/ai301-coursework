@@ -1,0 +1,2 @@
+pyproject.toml: note: unused section(s): module = ['agent.tools.market_analyzer', 'api.main', 'api.routes.profiles', 'api.routes.reviews', 'core.logging', 'core.services.profile_service', 'core.services.review_service', 'ingestion.chunking.semantic_chunker', 'ingestion.chunking.structural_chunker', 'ingestion.parsers.skill_extractor', 'ingestion.pipeline', 'rag.generator.output_parser', 'rag.generator.review_generator']
+Success: no issues found in 2 source files

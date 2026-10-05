@@ -1,0 +1,25 @@
+
+> pathreview-frontend@0.1.0 test
+> vitest --run
+
+
+ RUN  v1.6.1 C:/Users/damol/OneDrive/Documents/pathreview/frontend
+
+ ✓ src/components/__tests__/ReviewSection.test.tsx  (10 tests) 888ms
+ ❯ src/components/__tests__/ProfileForm.test.tsx  (8 tests | 1 failed) 6067ms
+   ❯ src/components/__tests__/ProfileForm.test.tsx > ProfileForm > validates portfolio URL character limit
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/__tests__/ProfileForm.test.tsx > ProfileForm > validates portfolio URL character limit
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 17 passed (18)
+   Start at  10:58:32
+   Duration  67.42s (transform 982ms, setup 38.13s, collect 5.23s, tests 6.96s, environment 63.82s, prepare 8.87s)
+
