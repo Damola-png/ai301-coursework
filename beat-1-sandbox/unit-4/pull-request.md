@@ -75,6 +75,8 @@ AI assistance: OpenAI Codex helped author the installed tool, execute the harnes
 
 CI is pending at PR opening, and the default local frontend run has one disclosed timeout; the longer-timeout run is diagnostic only. Redis #62 and deployment integration remain outside this fix. The Unit 4 assignment allows submitting the honestly disclosed PR as opened; all five green CI jobs remain a maintainer-review condition.
 
+Post-opening verification on October 11: all five GitHub jobs (lint, typecheck, test-unit, test-integration and frontend) completed successfully for the tested head. Their status and links are preserved in `ci-after-opening.json`. The as-opened PR draft and unticked CI box were not edited. The integration job's success does not add deployment coverage to the repository's empty integration suite.
+
 The portal submission must be the entire repo: https://github.com/Damola-png/ai301-coursework
 
 Related paths: `eval-run.txt`, `precheck-live-1.txt`, `precheck-live-2.txt`, `precheck-live-3.txt`, `pr_draft.md`, `test_evidence.md`, and `tools/pr-precheck/`.

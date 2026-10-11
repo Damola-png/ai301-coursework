@@ -1,0 +1,39 @@
+{
+  "pull_request": "https://github.com/codepath/pathreview-ai301-fa26-s1/pull/137",
+  "head_revision": "14792e0cd6f28b62abb4b52646407442eaa2a5da",
+  "observed_on": "2026-10-11",
+  "source": "Codex Code Review pull_requests_checks (GitHub checks)",
+  "checks": [
+    {
+      "name": "frontend",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/codepath/pathreview-ai301-fa26-s1/actions/runs/38178659172/job/114586344893"
+    },
+    {
+      "name": "typecheck",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/codepath/pathreview-ai301-fa26-s1/actions/runs/38178659172/job/114586344889"
+    },
+    {
+      "name": "test-integration",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/codepath/pathreview-ai301-fa26-s1/actions/runs/38178659172/job/114586344839"
+    },
+    {
+      "name": "test-unit",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/codepath/pathreview-ai301-fa26-s1/actions/runs/38178659172/job/114586344829"
+    },
+    {
+      "name": "lint",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/codepath/pathreview-ai301-fa26-s1/actions/runs/38178659172/job/114586344611"
+    }
+  ],
+  "note": "Post-opening status only. The as-opened PR description and CI checkbox were not edited. The integration job's success does not establish deployment integration coverage; the repo currently has no integration tests."
+}
