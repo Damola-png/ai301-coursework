@@ -1,0 +1,88 @@
+# pr-precheck: `draft:codepath/pathreview-ai301-fa26-s1#61`
+
+**Verdict: accept.** All six required checks pass, and the preferred check passes too.
+
+I read the plan, the draft, the test evidence, the three-dot diff and the cached thread. I also read the PR template, CONTRIBUTING and the Makefile. Nothing was edited or posted.
+
+| Item | Value |
+|---|---|
+| Scope | The `scope.md` Repo line matches the target repo. |
+| Branch | `fix/61-sqlalchemy-health-check` |
+| Base | `f89c06fc3ff292df2a04a39ac51319d32a76b779` |
+| Head | `14792e0cd6f28b62abb4b52646407442eaa2a5da` |
+| Commits | 2 |
+| Files | 3 files, +105/−2 |
+
+## Per-check summary
+
+1. **Plan fidelity: pass.**
+   - The only production change is `+from sqlalchemy import text` and `await db.execute(text("SELECT 1"))` in `health.py`.
+   - `aiosqlite>=0.20.0` goes in the dev dependencies only, and the test file holds the three planned tests.
+   - Two things go beyond the posted plan. One is the `pyproject.toml` comment correction, which only reword a stale "#61" reference and add or remove no suppression. The other is the `pytest.mark.unit` marker and the dict guard in the tests.
+   - The plan's Deviations section records all of these, and the description repeats them in Changes and Notes for Reviewers.
+   - Nothing planned was left out.
+
+2. **Issue-specific proof: pass.**
+   - The trigger is `pytest tests/unit/test_health.py -q --tb=short`.
+   - Before, on the unchanged base: `2 failed, 1 passed`, with `postgres_health_check_failed error="Textual SQL expression 'SELECT 1' ..."` and `assert 503 == 200`.
+   - After: `3 passed`.
+   - The decisive tests run the real `health.health_check` and the mounted production router against a live `sqlite+aiosqlite` session. Only Redis and settings are controlled, to isolate #62.
+
+3. **Repo check evidence: pass.** Every check the template and CONTRIBUTING ask for has a recorded command and outcome.
+
+   | Check | Result |
+   |---|---|
+   | `make test-unit` equivalent | `pytest tests/unit -v -m unit`, exit 0, 378 passed and 53 xfailed (the Makefile's exact filter) |
+   | `make lint` | `ruff check .`, exit 0 |
+   | `make typecheck` | `mypy api/ core/ ingestion/ rag/ agent/ safety/`, exit 0 |
+   | `make format` | `black --check .`, exit 0; the writing `make format` was swapped for the non-writing check to avoid repo-wide rewrites, and the description explains the swap |
+   | Frontend (the failing default run is shown, not hidden) | `npm test -- --run` failed 1 of 18 on a 5000 ms timeout; a 30000 ms diagnostic run passed 18/18 and is labeled as diagnostic only |
+   | `make test-integration` | exit 5, no tests collected, disclosed as not a pass |
+
+   No make executable exists on Windows, and the description explains the module-entry-point equivalents.
+
+4. **Reviewable diff: pass.**
+   - There are two focused commits and three files, with no debug output, commented-out code or formatting churn.
+   - The drafting files are untracked and not in the diff.
+
+5. **Faithful claims: pass.**
+   - The checked boxes (unit, lint, typecheck, new tests) match the outputs.
+   - The CI box is unticked and the integration box is unticked with a reason.
+   - The description says outright that #62 is unfixed, that SQLite is not a PostgreSQL deployment test, and that the frontend default run failed.
+   - It does not claim an all-green result.
+
+6. **Stated standards: pass.**
+   - Every template section has real content: Summary, `Closes #61`, Changes, Testing, a reasoned N/A for Screenshots, and Notes for Reviewers.
+   - The AI disclosure in Notes for Reviewers names the tools and the extent: Codex wrote the fixtures, change and description, and Claude Code ran the skills.
+   - The head is the student's own fork, on a `fix/<issue>-<slug>` branch, targeting the semester repo's `main`.
+   - The commits follow Conventional Commits.
+   - The cached search `repo:codepath/pathreview-ai301-fa26-s1 is:pr author:Damola-png` returned no results, so there is no duplicate PR.
+   - The CI box is left unticked as Unit 4 requires, with pending CI disclosed.
+   - I relied on your statement that the fork relationship was verified through the GitHub API, and did not check it again myself.
+
+7. **Regression control (preferred): pass.** `test_health_check_preserves_503_for_database_failure` shows an `OperationalError` still gives 503 with postgres unhealthy and Redis healthy, and the broader unit suite is unchanged.
+
+## Voice-guide observations
+These do not affect the verdict.
+- I found no broken rule in the title or description.
+- Commands sit next to their outputs, the SQLite and #62 limits are labeled, and AI use is disclosed.
+
+## Notes for you
+- Another thread comment (tureh1's) says the open PR #93 for #62 also creates `tests/unit/test_health.py`. That is a possible merge conflict, not a rubric item, so be ready to rebase if #93 lands first.
+- Green CI, and a maintainer approving the fork workflows, remain conditions for maintainer review.
+
+```json
+{
+  "item": "draft:codepath/pathreview-ai301-fa26-s1#61",
+  "checks": [
+    {"name": "Plan fidelity", "grade": "pass", "evidence": "Only text() import/wrap in health.py, dev-only aiosqlite, three planned tests; the comment-only pyproject edit and unit marker are recorded in plan Deviations and the description"},
+    {"name": "Issue-specific proof", "grade": "pass", "evidence": "Same pytest command: before '2 failed, 1 passed' with the textual-SQL coercion error and 'assert 503 == 200'; after '3 passed', through the real handler and router with a live SQLite session"},
+    {"name": "Repo check evidence", "grade": "pass", "evidence": "Unit (378 passed, 53 xfailed), ruff, mypy, black --check, integration (exit 5, disclosed) and frontend (1 failed, disclosed) all recorded with commands; make unavailable on Windows and the equivalents explained"},
+    {"name": "Reviewable diff", "grade": "pass", "evidence": "3 files, +105/-2, 2 commits; no debug, dead code or formatting churn; drafting files are untracked"},
+    {"name": "Faithful claims", "grade": "pass", "evidence": "CI and integration boxes unticked with reasons; description states #62 is unfixed, SQLite is not a PostgreSQL test, and the frontend default run failed; no all-green claim"},
+    {"name": "Stated standards", "grade": "pass", "evidence": "All template sections filled, 'Closes #61', AI tool and extent in Notes for Reviewers, own-fork fix/61-sqlalchemy-health-check branch, existing_own_pr_search results empty"},
+    {"name": "Regression control", "grade": "pass", "evidence": "test_health_check_preserves_503_for_database_failure asserts 503, postgres unhealthy, redis healthy; unit suite exit 0"}
+  ],
+  "verdict": "accept"
+}
+```

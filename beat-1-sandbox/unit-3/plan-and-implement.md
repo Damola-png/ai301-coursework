@@ -54,10 +54,14 @@ AI assistance: OpenAI Codex helped inspect the source, run the reproduction, and
 
 `fix/61-sqlalchemy-health-check`
 
-Fork: https://github.com/Damola-png/pathreview
-Branch: https://github.com/Damola-png/pathreview/tree/fix/61-sqlalchemy-health-check
+Fork: https://github.com/Damola-png/pathreview-ai301-fa26-s1
+Branch: https://github.com/Damola-png/pathreview-ai301-fa26-s1/tree/fix/61-sqlalchemy-health-check
+
+Unit 4 publishing correction: the original Damola-png/pathreview fork belongs to ascherj/pathreview, not the cohort fork network. It remains intact; the same tested commits were pushed to the correct cohort fork above, through the added course-fork remote. No production code changed during that move.
 
 Pushed implementation commit: `e1d0feb` (`fix(api): wrap health probe SQL in text`). Exactly three files were committed: `api/routes/health.py`, `pyproject.toml`, and `tests/unit/test_health.py`. Neither `plan.md` nor `comment.md` is in the fix commit.
+
+Unit 4 follow-up commit: `14792e0` (`test(api): include health regressions in unit checks`). It marks the three regression tests as unit tests and corrects the stale issue-61 suppression comment after a diagnostic confirmed the active errors belong to Redis/settings and dictionary typing. These changes are recorded in the updated `plan.md` Deviations; the branch still changes only the same three files. Fresh Unit 4 outputs are preserved in `../unit-4/test_evidence.md`, without altering the Unit 3 run or before/after captures below.
 
 **Evidence**
 

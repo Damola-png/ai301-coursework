@@ -3,7 +3,7 @@
 Issue: https://github.com/codepath/pathreview-ai301-fa26-s1/issues/61
 Contributor: Damola-png
 Posted plan: https://github.com/codepath/pathreview-ai301-fa26-s1/issues/61#issuecomment-5997935131
-Fork: https://github.com/Damola-png/pathreview
+Fork: https://github.com/Damola-png/pathreview-ai301-fa26-s1
 Branch: `fix/61-sqlalchemy-health-check`
 Base: `f89c06fc3ff292df2a04a39ac51319d32a76b779`
 
@@ -90,4 +90,12 @@ The production change stayed within the posted plan: only the text() import and 
 One test-only adjustment followed verification. The additional focused mypy run treated FastAPI's HTTPException.detail as a string and reported three dictionary-index errors in the negative control. The test now asserts that detail is a dictionary before checking the same status/dependency fields. No trigger, fixture, expected status, or production error handling changed. This does not invalidate the posted plan's three-test promise or require an upstream scope update.
 
 The exact reproduction command changed from two failures and one pass to three passes against the real changed handler/router. The broader backend unit suite passed with the repository's seeded expected-failure markers left intact. Redis #62, deployment integration, and the five PR CI jobs remain outside the evidence from this build.
+
+Unit 4 precheck added the unit marker to the three regression tests. The Makefile runs pytest with -m unit; without this module marker these tests were excluded by that command despite passing when called directly. No test trigger or expected outcome changed.
+
+The Unit 4 suppression audit found no issue #61 xfail marker. A temporary copy of the mypy configuration with only the health override removed reported ten errors: seven dependency-status dictionary index errors, two missing Redis settings attributes (#62), and one Redis constructor overload error. None was the SQL statement-coercion bug. The active suppressions remain; the obsolete comment saying they also cover #61 was corrected. This comment-only clarification is the additional pyproject change, not a new suppression or an unrelated bug fix.
+
+The Unit 4 assignment explicitly requires leaving the CI checkbox unticked before opening the PR and grades the PR as opened. That supersedes this plan's earlier assumption that CI must already be green to submit Unit 4; all five jobs remain required for maintainer review. The description will disclose pending CI, the expected empty integration suite, and any local frontend failure instead of claiming a full-stack or all-green result.
+
+Publishing found an infrastructure mismatch: Damola-png/pathreview was a fork of ascherj/pathreview, outside the cohort repository's fork network. The same tested head (14792e0) was pushed to the new Damola-png/pathreview-ai301-fa26-s1 fork of the cohort repo. The old fork and origin remote were preserved; course-fork is the PR push remote. No production/test commit or before/after result changed.
 
