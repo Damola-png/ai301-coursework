@@ -6,6 +6,6 @@ The focused suite now passes all 21 tests. The pull request is still an open dra
 
 This work reinforced a habit I want to carry forward: verify old results, explain what the evidence proves, and keep a change focused before asking someone to review it.
 
-I used AI assistance for the investigation, test repairs, and this draft.
+I used AI assistance for the investigation, test repairs, and writing this post.
 
 https://github.com/ascherj/pathreview/pull/699

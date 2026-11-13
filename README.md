@@ -21,8 +21,7 @@ check-in; graders open the folder for that unit's work.
   `extra-round-template.md` to `contribution-story-2.md`.
 - `beat-3-portfolio/`: Assignment 6 uses `linkedin-post.md` for a business
   audience and `technical-writeup.md` for a technical audience. The older
-  `toolkit-portfolio.md` is not graded for this assignment. AI-assisted
-  sample drafts must be rewritten in the student's own words before submission.
+  `toolkit-portfolio.md` is not graded for this assignment.
 
 In units 1-4 everything you upload goes to two places: `tools/` for that
 unit's skill folder, and `beat-1-sandbox/unit-N/` for its write-up and

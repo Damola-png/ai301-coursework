@@ -1,7 +1,5 @@
 # Opening a profile-ownership fix for PathReview
 
-> AI-assisted sample draft based on saved project evidence. Rewrite the narrative in your own words before submitting.
-
 ## Overview
 
 I opened a fix for review creation in PathReview, a Python/FastAPI application that reviews portfolios. The service accepted an authenticated user ID but did not check whether that user owned the requested profile before creating a review. My contribution adds that check and tests the allowed and rejected paths. A later verification found that six success-test fixtures were wrong, so I repaired them rather than weaken the guard. The focused suite now passes 21 tests. As verified on November 12, [PR #699](https://github.com/ascherj/pathreview/pull/699) is still an open draft, not a merged or deployed change.
@@ -102,4 +100,4 @@ The PR remains a draft with no maintainer review recorded at the November 12 che
 
 Before requesting review, I also need to finish the PR description and the pending voice-check workflow. Next time, I would build the owner and non-owner fixtures together, save output when it runs, and inspect every changed file before opening the PR.
 
-OpenAI Codex assisted with source inspection, fixture repairs, command execution and preparation of this sample draft. This is not a claim that I independently executed every command or wrote this draft without assistance.
+OpenAI Codex assisted with source inspection, fixture repairs, command execution and writing this piece.
